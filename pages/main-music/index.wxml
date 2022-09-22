@@ -1,4 +1,9 @@
 <!--index.wxml-->
 <view class="container">
-music
+    <van-search disabled 
+    placeholder="搜索您喜欢的歌曲" 
+    shape="round" 
+    background="#fafafa"
+    bind:click-input="handleSearchClick" />
+
 </view>
