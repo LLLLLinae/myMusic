@@ -1,0 +1,29 @@
+ // 播放量格式化
+ function countFormat(count){
+    var counter = parseInt(count)
+     if(counter/100000000>0){
+         return (counter/100000000).toFixed(1)+"亿"
+     }else if(counter>10000){
+         return (counter/1000).toFixed(1) + "万"
+     }else{
+         return counter+''
+     }
+ }
+
+ // 对歌的时长进行格式化
+ function formatDuration(duration, isMilliseconds){
+     // 不传isMilliseconds默认以ms为单位
+     isMilliseconds = isMilliseconds===undefined
+     if(isMilliseconds){
+         duration = duration/1000
+     }
+     const m = Math.floor(duration/60)
+     const s = Math.floor(duration%60)
+     return m+":"+s
+ }
+
+ // 时间格式化 0:5->00:05
+ function padLeftZero(str) {
+     str = str.toString(str) 
+     return ("00"+str).splice(str.length)
+ }
