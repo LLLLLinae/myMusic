@@ -58,7 +58,6 @@ Page({
   },
   handleSearchAction: function() {
     // 保存一下searchValue
-
     const searchValue = this.data.searchValue
     getSearchResult(searchValue).then(res => {
       this.setData({ resultSongs: res.result.songs })
