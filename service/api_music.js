@@ -20,3 +20,8 @@ export function getSongMenu(cat="全部", limit=6, offset=0) {
     offset
   })
 }
+export function getSongMenuDetail(id) {
+  return request.get("/playlist/detail", {
+    id
+  })
+}

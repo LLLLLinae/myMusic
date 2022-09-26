@@ -17,8 +17,8 @@
      if(isMilliseconds){
          duration = duration/1000
      }
-     const m = Math.floor(duration/60)
-     const s = Math.floor(duration%60)
+     var m = Math.floor(duration/60)
+     var s = Math.floor(duration%60)
      return m+":"+s
  }
 

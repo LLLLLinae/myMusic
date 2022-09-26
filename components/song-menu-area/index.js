@@ -13,5 +13,12 @@ Component({
   data: {
   },
   methods: {
+    handleMenuItemClick: function(event) {
+      console.log(222)
+      const item = event.currentTarget.dataset.item
+      wx.navigateTo({
+        url: `/pages/detail-songs/index?id=${item.id}&type=menu`,
+      })
+    }
   }
 })

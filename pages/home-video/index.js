@@ -32,5 +32,6 @@ Page({
           }
           this.setData({hasMore:res.hasMore})
       })
-    }
+    },
+    handleVideoItemClick(){}
 })
