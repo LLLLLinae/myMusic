@@ -1,5 +1,5 @@
  // 播放量格式化
- function countFormat(count){
+ function formatCount(count){
     var counter = parseInt(count)
      if(counter/100000000>0){
          return (counter/100000000).toFixed(1)+"亿"
@@ -27,3 +27,8 @@
      str = str.toString(str) 
      return ("00"+str).splice(str.length)
  }
+
+ module.exports = {
+    formatCount: formatCount,
+    formatDuration: formatDuration
+  }

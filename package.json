@@ -1,0 +1,24 @@
+{
+  "name": "myMusic",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LLLLLinae/myMusic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LLLLLinae/myMusic/issues"
+  },
+  "homepage": "https://github.com/LLLLLinae/myMusic#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.10.5",
+    "hy-event-store": "^1.2.1"
+  }
+}
