@@ -1,8 +1,14 @@
-import hyRequest from './index'
+import request from './index'
 
 export function getSongDetail(ids) {
-  return hyRequest.get("/song/detail", {
+  return request.get("/song/detail", {
     ids
+  })
+}
+
+export function getSongLyric(id) {
+  return request.get("/lyric", {
+    id
   })
 }
 
