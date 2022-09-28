@@ -50,7 +50,9 @@
       <image class="btn btn-pause" 
              src="/assets/images/player/play_{{playingName}}.png"
              bindtap="handlePlayBtnClick"></image>
-      <image class="btn btn-next" src="/assets/images/player/play_next.png"></image>
+      <image class="btn btn-next" 
+             src="/assets/images/player/play_next.png"
+             bindtap="handleNextBtnClick"></image>
       <image class="btn btn-music" src="/assets/images/player/play_music.png"></image>
     </view>
   </swiper-item>

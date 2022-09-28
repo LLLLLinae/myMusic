@@ -1,11 +1,11 @@
 // pages/home-music/index.js
-import { rankingStore } from '../../store/index'
+import { rankingStore,playerStore } from '../../store/index'
 
 import { getBanners, getSongMenu } from '../../service/api_music'
 import queryRect from '../../utils/query-rect'
 import throttle from '../../utils/throttle'
 
-const throttleQueryRect = throttle(queryRect, 1000)
+const throttleQueryRect = throttle(queryRect, 1000, { trailing: true })
 
 Page({
   data: {
@@ -14,7 +14,12 @@ Page({
     hotSongMenu: [],
     recommendSongMenu: [],
     recommendSongs: [],
-    rankings: { 0: {}, 2: {}, 3: {} }
+    rankings: { 0: {}, 2: {}, 3: {} },
+
+    currentSong: {},
+    isPlaying: false,
+    playAnimState: "paused"
+
   },
 
   onLoad: function (options) {
@@ -22,9 +27,7 @@ Page({
     this.getPageData()
 
     // 从store获取共享的数据
-    rankingStore.onState("newRanking", this.getRankingHandler(0))
-    rankingStore.onState("originRanking", this.getRankingHandler(2))
-    rankingStore.onState("upRanking", this.getRankingHandler(3))
+    this.setupPlayerStoreListener()
   },
 
   // 网络请求
@@ -55,6 +58,27 @@ Page({
       const rect = res[0]
       this.setData({ swiperHeight: rect.height })
     })
+  },
+
+  setupPlayerStoreListener: function() {
+    rankingStore.onState("newRanking", this.getRankingHandler(0))
+    rankingStore.onState("originRanking", this.getRankingHandler(2))
+    rankingStore.onState("upRanking", this.getRankingHandler(3))
+
+    // 2.播放器监听
+    playerStore.onStates(["currentSong", "isPlaying"], ({currentSong, isPlaying}) => {
+      if (currentSong) this.setData({ currentSong })
+      if (isPlaying !== undefined) {
+        this.setData({ 
+          isPlaying, 
+          playAnimState: isPlaying ? "running": "paused" 
+        })
+      }
+    })
+  },
+
+  handlePlayBtnClick: function() {
+    playerStore.dispatch("changeMusicPlayStatusAction", !this.data.isPlaying)
   },
 
   onUnload: function () {

@@ -94,7 +94,13 @@ Page({
   },
 
   handlePlayBtnClick: function() {
-    playerStore.dispatch("changeMusicPlayStatusAction")
+    playerStore.dispatch("changeMusicPlayStatusAction",!this.data.isPlaying)
+  },
+  handlePrevBtnClick: function() {
+    playerStore.dispatch("changeNewMusicAction", false)
+  },
+  handleNextBtnClick: function() {
+    playerStore.dispatch("changeNewMusicAction")
   },
 
     // ========================   数据监听   ======================== 
