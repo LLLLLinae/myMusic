@@ -14,6 +14,20 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "music-player",
+                    "pathName": "pages/music-player/index",
+                    "query": "id=6954660951",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "detail-song-menu",
+                    "pathName": "pages/detail-songs/index",
+                    "query": "id=6954660951&type=menu",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }
