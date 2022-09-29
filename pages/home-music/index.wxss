@@ -20,6 +20,10 @@ page {
 }
 
 /* 播放工具栏 */
+.play-bar-placeholder {
+  height: 44px;
+}
+
 .play-bar {
   display: flex;
   justify-content: space-between;

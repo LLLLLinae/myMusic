@@ -81,6 +81,12 @@ Page({
     playerStore.dispatch("changeMusicPlayStatusAction", !this.data.isPlaying)
   },
 
+  handlePlayBarClick: function() {
+    wx.navigateTo({
+      url: '/pages/music-player/index?id=' + this.data.currentSong.id,
+    })
+  },
+
   onUnload: function () {
     // rankingStore.offState("newRanking", this.getNewRankingHandler)
   },
@@ -101,18 +107,4 @@ Page({
       console.log(this.data.rankings)
     }
   },
-
-
-  // getUpRankingHandler: function(res) {
-  //   if (Object.keys(res).length === 0) return
-  //   const name = res.name
-  //   const coverImgUrl = res.coverImgUrl
-  //   const songList = res.tracks.slice(0, 3)
-  //   const rankingObj = {name, coverImgUrl, songList}
-  //   const originRankings = [...this.data.rankings]
-  //   originRankings.push(rankingObj)
-  //   this.setData({ 
-  //     rankings: originRankings
-  //   })
-  // }
 })
